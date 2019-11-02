@@ -16,7 +16,7 @@ public class LocationNameGenerator {
                                                              "Briar", "Clay", "Sky", "Wild", "Ash", "Heart", "Helm", 
                                                              "Crest", "Ember", "Wild", "Hazel", "Briar", "Silver",
                                                              "Steel", "Bronze", "Skull", "Bone", "Salt", "Storm",
-                                                             "Willow", "Cedar", "Maple", "Ash"
+                                                             "Willow", "Cedar", "Maple", "Ash", "Shear", "Ghost"
                                                             ));
   // Our suffix words, to be combined with a prefix
   HashSet<String> suffix = new HashSet<String>(Arrays.asList("keep", "hold", "ville", "boro", "burg", "stone",
@@ -28,7 +28,7 @@ public class LocationNameGenerator {
                                                              "top", "bottom", "cross", "fork", "sheild",
                                                              "trail", "wild", "worth", "stead", "moon", "star", "hill",
                                                              "smith", "forest", "point", "briar", "gate",
-                                                             "town", "henge", "loft", "marsh", "bone", "skull"
+                                                             "town", "henge", "loft", "marsh", "bone", "skull", "point"
                                                             ));
   
   HashSet<String> suffix_landmarks = new HashSet<String>(Arrays.asList("stone", "vale", "brook", "field", "fall",
@@ -59,9 +59,8 @@ public class LocationNameGenerator {
   // A set of creature adjectives
   HashSet<String> creatureAdjectives = new HashSet<String>(Arrays.asList("Old", "Dead", "Mad", "Dancing", "Lost",
                                                                          "Wild", "Howling", "Laughing", "Drunken",
-                                                                         "Jolly"
+                                                                         "Jolly", "Bleeding"
                                                                         ));
- 
   
   // A set of place nouns
   HashSet<String> nouns = new HashSet<String>(Arrays.asList("Rock", "Creek", "River", "Lake", "Bluff", "Harbor",
@@ -69,23 +68,17 @@ public class LocationNameGenerator {
                                                             "Landing", "Junction", "Crag", "Stone", "Mill", "Gate",
                                                             "Bend", "Falls", "Point", "Rock", "Pass", "Refuge",
                                                             "Bridge", "Hole", "Watch", "Lookout", "Hollow",
-                                                            "Henge", "Keep"
+                                                            "Henge", "Keep", "End"
                                                            ));
-  
-  HashSet<String> landmarkNouns = new HashSet<String>(Arrays.asList("Keep", "Temple", "Monastery", "Castle", "Lookout",
-                                                                    "Henge", "Barrow", "Mines", "Quarry", "Camp",
-                                                                    "Refuge"
-                                                                   ));
-  
+
   // A set of archetypes/people
   HashSet<String> archetypes = new HashSet<String>(Arrays.asList("Reveler", "Miner", "Soldier", "Traveler", "Pilgrim",
                                                                  "Hermit", "Magician", "Priest", "Priestess",
                                                                  "Emperor", "Empress", "Fool", "Beggar", "Hunter",
                                                                  "Wayfarer", "Witch" , "Seer", "King", "Queen",
                                                                  "Drunkard", "Gambler", "Hangman", "Carpenter",
-                                                                 "Miller", "Baker", "Butcher"
+                                                                 "Miller", "Baker", "Butcher", "Crone", "Traitor"
                                                                 ));
-  
   
   // A set of "virtues" for lack of a better word
   HashSet<String> virtues = new HashSet<String>(Arrays.asList("Mockery", "Hunger", "Fury", "Desperation", "Celebration",
@@ -97,13 +90,18 @@ public class LocationNameGenerator {
                                                              ));
   
   // Random fun nouns
-  HashSet<String> flavorNouns = new HashSet<String>(Arrays.asList("Salt", "Death", "Marble", "Granite", "Horseshoe",
-                                                                  "Gallows", "Thunder", "Whisper", "Glass", "Bottle",
-                                                                  "Sword", "Mirror", "Iron", "Gold"
+  HashSet<String> flavorNouns = new HashSet<String>(Arrays.asList("Salt", "Death", "Bone", "Eye", "Horseshoe", "Skull",
+                                                                  "Gallows", "Thunder", "Whisper", "Bottle", "Hand",
+                                                                  "Sword", "Mirror", "Iron", "Gold", "Spine", "Saddle",
+                                                                  "Sword", "Spear"
                                                                  ));
+  
+  
   // Random fun adjectives
   HashSet<String> flavorAdjectives = new HashSet<String>(Arrays.asList("Haunted", "Flaming", "Narrow", "Broken",
-                                                                       "Whispering", "Crimson", "Grand" 
+                                                                       "Whispering", "Crimson", "Grand", "Whistling",
+                                                                       "Sleeping", "Glass", "Granite", "Howling",
+                                                                       "Black", "Frozen"
                                                                       ));
   
   // Geographical Landmarks
@@ -112,16 +110,24 @@ public class LocationNameGenerator {
                                                                    "Creek", "Valley", "Grove", "Forest", "Canyon",
                                                                    "Gorge", "Forest", "Woods", "Cave", "Grotto",
                                                                    "Moor", "Swamp", "Brook", "Lake", "Falls", "Reach",
-                                                                   "Ridge", "Brook", "Stream", "Spring"
+                                                                   "Ridge", "Brook", "Stream", "Spring", "Crest",
+                                                                   "Summit", "Deep", "Trench", "Cavern", "Spire"
                                                                   ));
   
   HashSet<String> geoLandmarks_rev = new HashSet<String>(Arrays.asList("Vale", "Lake", "River", "Mount"));
+  
   // Civilization Landmarks
-  HashSet<String> civLandMarks = new HashSet<String>(Arrays.asList("Tower", "Keep", "Watch", "Temple", "Monastery",
-                                                                   "Sanctum", "Refuge", "Lighthouse", "Bridge", "Mine",
+  HashSet<String> civLandmarks = new HashSet<String>(Arrays.asList("Tower", "Keep", "Watch", "Temple", "Monastery",
+                                                                   "Sanctum", "Refuge", "Bridge", "Mine", "Stronghold",
                                                                    "Mill", "Plantation", "Barrow", "Henge", "Lookout",
-                                                                   "Outpost"
+                                                                   "Outpost", "Castle", "Runestone", "Ruins", "Camp",
+                                                                   "Estate", "Inn", "Crossing", "Quarry", "Lighthouse",
+                                                                   "Beacon", "Bastion", "Tomb", "Beacon"
                                                                   ));
+  
+  HashSet<String> numberSet = new HashSet<String>(Arrays.asList("Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+                                                                "Nine", "Ten", "Eleven", "Twelve", "Dozen", "Twenty",
+                                                                "Hundred", "Thousand"));
   
   
   // Update this method to be able to accept multiple sets and then re-write earlier code
@@ -138,10 +144,11 @@ public class LocationNameGenerator {
 // Make the actual title
   public String townNameGen(String lang) { // HashSet<String> nameSet) {
     
+    // Get a random integer
+    int random = r.nextInt(15);
+    
+    // Our beginning string
     String townName = "";
-    // Create a new Random object and use it to determine which case we will be used.
-    Random r = new Random();
-    int random = r.nextInt(11);
     
     // These will be used in our different cases as components of our final town name.
     String var1; String var2; String var3;
@@ -203,11 +210,12 @@ public class LocationNameGenerator {
         break;
       case 9:
       case 10:
-        // Get a random word/name
-        townName += w.getWord(lang);
-        break;
       case 11:
-        townName += w.getWord(lang) + " ";
+        // Get a random word/name
+        townName += w.getRandomWord(lang);
+        break;
+      case 12:
+        townName += w.getRandomWord(lang) + " ";
         townName += getRandomElement(nouns);
         break;
       default:
@@ -219,12 +227,10 @@ public class LocationNameGenerator {
     return townName;
   }
   
-  
   public String geoLandmarkNameGen(String lang) {
     
     String locationName = "";
-    // Create a new Random object and use it to determine which case we will be used.
-    Random r = new Random();
+    // Get a random integer
     int random = r.nextInt(13);
     
     // These will be used in our different cases as components of our final location name.
@@ -272,13 +278,14 @@ public class LocationNameGenerator {
         break;
       case 7:
       case 8:
+      case 9:
         // Use a name
-        locationName += w.getWord(lang);
+        locationName += w.getRandomWord(lang);
         locationName += " " + getRandomElement(geoLandmarks);
         break;
-      case 9: 
+      case 10: 
         locationName += getRandomElement(geoLandmarks_rev);
-        locationName += " " + w.getWord(lang);
+        locationName += " " + w.getRandomWord(lang);
         break;
       default:
         // Get two random elements, checking for repetition, from the prefix and suffix lists.
@@ -293,80 +300,76 @@ public class LocationNameGenerator {
   
   
   public String civLandmarkNameGen(String lang) {
+    // Start with an empty string
     String locationName = "";
-    // Create a new Random object and use it to determine which case we will be used.
-    Random r = new Random();
+    // Get a random integer
     int random = r.nextInt(13);
     
     // These will be used in our different cases as components of our final location name.
     String var1; String var2;
     
-        switch(random) {
+    switch(random) {
       case 0:
         // Combine two random elements from the animals list.
         locationName += getRandomElement(animals, monsters);
         if (r.nextBoolean()) locationName += "'s";
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       case 1:
         // Combine two random elements from the animals and the suffix lists.
         locationName += getRandomElement(animals, monsters);
         locationName += getRandomElement(suffix_landmarks);
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       case 2:
         // Get a random adjective and a random monster or animal
         locationName += getRandomElement(creatureAdjectives) + " ";
         locationName += getRandomElement(animals, monsters);
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       case 3:
         // Get a random archetype
         locationName += getRandomElement(archetypes);
         if (r.nextBoolean()) locationName += "'s";
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       case 4:
         // Get a random virtue
         locationName += getRandomElement(virtues);
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       case 5:
         // Get a random flavor noun
         locationName += getRandomElement(flavorNouns);
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       case 6:
         // Get a random flavor adjective
         locationName += getRandomElement(flavorAdjectives);
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       case 7:
       case 8:
+      case 9:
         // Use a name
-        locationName += w.getWord(lang);
-        locationName += " " + getRandomElement(geoLandmarks);
-        break;
-      case 9: 
-        locationName += getRandomElement(geoLandmarks_rev);
-        locationName += " " + w.getWord(lang);
+        locationName += w.getRandomWord(lang);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
       default:
         // Get two random elements, checking for repetition, from the prefix and suffix lists.
         var1 = getRandomElement(prefix);
         do {var2 = getRandomElement(suffix_landmarks);} while (var1.toLowerCase().equals(var2));
         locationName = var1 + var2;
-        locationName += " " + getRandomElement(geoLandmarks);
+        locationName += " " + getRandomElement(civLandmarks);
         break;
     }
     return locationName;
   }
-  
-  public static void main(String[] args) {
+    public static void main(String[] args) {
     
     LocationNameGenerator locNameGen = new LocationNameGenerator();
     for (int i = 0; i < 20; i++) {
-      System.out.println(locNameGen.townNameGen("Orc"));
+      System.out.println(locNameGen.geoLandmarkNameGen("Orc"));
     }
   }
 }
